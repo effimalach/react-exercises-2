@@ -1,3 +1,4 @@
+import Colorize from './Colorize.js'
 import React  from 'react';
 import './ColorName.css';
 
@@ -12,6 +13,8 @@ function ColorName() {
 			</p>
 
 			{ /* Insert your new component here */ }
+			<Colorize colorName= "red" />
+			
 
 		</div>
 	)

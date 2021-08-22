@@ -10,6 +10,8 @@ function Marker() {
 		"Fourth special item",
 	]);
 
+	const [value, setValue] = useState('')
+	console.log(value)
 	return (
 		<div className="Marker">
 			<p>
@@ -19,9 +21,13 @@ function Marker() {
 				Apply the marker for <u>all items</u>.
 			</p>
 
-			<input type="text" placeholder="Text to marker..." />
+			<input type="text" placeholder="Text to marker..."  onChange={(e)=>setValue(e.target.value)}/>
 			<ul>
-				{ /* The list should be here */ }
+				{items.map((item,i)=><li 
+				dangerouslySetInnerHTML={{__html: item.replaceAll(value, `<span class="marker">${value}</span>`)}}
+				 key={i}>
+					 
+				 </li>)}
 			</ul>
 		</div>
 	)
